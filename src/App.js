@@ -1,24 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import NavBar from "./components/NavBar";
+import ScrollToTop from "./components/ScrollToTop";
+import LoadingComponent from "./components/LoadingComponent";
+import ErrorComponent from "./components/ErrorComponent";
+import ResultsSection from "./components/ResultsSection";
+
+import { useState, useRef, useCallback } from "react";
+import useRedditPosts from "./hooks/useRedditPosts";
+
+import "./App.css";
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState("awww");
+  const [after, setAfter] = useState("");
+  const { loading, error, posts, afterPost } = useRedditPosts(
+    searchTerm,
+    after
+  );
+
+  const observer = useRef();
+  const lastPostRef = useCallback(
+    (node) => {
+      if (loading) return;
+      if (observer.current) observer.current.disconnect();
+      observer.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          if (afterPost) setAfter(afterPost);
+        }
+      });
+      if (node) observer.current.observe(node);
+    },
+    [loading, afterPost]
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar setAfter={setAfter} setSearchTerm={setSearchTerm} />
+      {loading && <LoadingComponent />}
+      {error && <ErrorComponent errorMsg={error} />}
+      {posts && posts.length > 0 && (
+        <ResultsSection lastPostRef={lastPostRef} data={posts} />
+      )}
+
+      <ScrollToTop />
+    </>
   );
 }
 
