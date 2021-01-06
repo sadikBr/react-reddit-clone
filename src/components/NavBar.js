@@ -1,12 +1,22 @@
 import { useState } from "react";
 
+import useAutocomplete from "../hooks/useAutocomplete";
+
 const NavBar = ({ setAfter, setSearchTerm }) => {
   const [inputvalue, setInputValue] = useState("");
+
+  const { suggestions, setSuggestions } = useAutocomplete(inputvalue);
 
   function handleSubmit(event) {
     event.preventDefault();
     setSearchTerm(inputvalue);
     setAfter("");
+  }
+
+  function handleSuggestionClick(suggestion) {
+    setSearchTerm(suggestion);
+    setInputValue("");
+    setSuggestions([]);
   }
 
   return (
@@ -19,6 +29,18 @@ const NavBar = ({ setAfter, setSearchTerm }) => {
           type="text"
           placeholder="Search here ..."
         />
+        <div className="suggestions">
+          {suggestions.length > 0 &&
+            suggestions.map((suggestion) => (
+              <div
+                onClick={() => handleSuggestionClick(suggestion)}
+                key={suggestion + Math.random() * Date.now()}
+                tabIndex="0"
+              >
+                {suggestion}
+              </div>
+            ))}
+        </div>
       </form>
     </div>
   );

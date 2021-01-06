@@ -15,6 +15,30 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
 }
 
+.header form {
+  position: relative;
+}
+
+.header .suggestions {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  background: white;
+  box-shadow: 0 0 15px gray;
+  border-radius: 0.25rem;
+  top: 110%;
+  left: 0;
+}
+
+.header .suggestions div {
+  padding: 5px 10px;
+  color: gray;
+  cursor: pointer;
+}
+.header .suggestions div:hover {
+  background: rgb(218, 218, 218);
+}
+
 .results {
   width: 100%;
   padding: 0.5rem 6rem;

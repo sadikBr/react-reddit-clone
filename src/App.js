@@ -35,11 +35,11 @@ function App() {
   return (
     <>
       <NavBar setAfter={setAfter} setSearchTerm={setSearchTerm} />
-      {loading && <LoadingComponent />}
       {error && <ErrorComponent errorMsg={error} />}
       {posts && posts.length > 0 && (
         <ResultsSection lastPostRef={lastPostRef} data={posts} />
       )}
+      {loading && <LoadingComponent />}
 
       <ScrollToTop />
     </>
