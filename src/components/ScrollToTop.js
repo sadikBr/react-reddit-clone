@@ -16,7 +16,7 @@ const ScrollToTop = () => {
     });
   }
 
-  if (scrollY > 1400) {
+  if (scrollY > 1500) {
     return (
       <div onClick={scrollToTop} className="to-top">
         ↑
