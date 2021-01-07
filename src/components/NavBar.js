@@ -16,7 +16,6 @@ const NavBar = ({ setAfter, setSearchTerm }) => {
 
   function handleSuggestionClick(suggestion) {
     setInputValue(suggestion);
-    setSuggestions([]);
   }
 
   return (
