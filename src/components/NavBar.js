@@ -10,6 +10,7 @@ const NavBar = ({ setAfter, setSearchTerm }) => {
   function handleSubmit(event) {
     event.preventDefault();
     setSearchTerm(inputvalue);
+    setSuggestions([]);
     setAfter("");
   }
 

@@ -8,12 +8,12 @@ const ResultsSection = ({ data, lastPostRef }) => {
           return (
             <MediaEmbeder
               lastPostRef={lastPostRef}
-              media={item.data}
-              key={item.data.id}
+              media={item}
+              key={item.id}
             />
           );
         } else {
-          return <MediaEmbeder media={item.data} key={item.data.id} />;
+          return <MediaEmbeder media={item} key={item.id} />;
         }
       })}
     </div>

@@ -6,25 +6,14 @@ const MediaEmbeder = ({ media, lastPostRef }) => {
   const [md] = useState(new MarkdownIt());
 
   function renderMedia(media) {
-    if (
-      /(.jpe?g|.png|.gif)$/.test(media.url) ||
-      (media.url.startsWith("https://i.imgur.com") &&
-        !media.url.endsWith(".gifv"))
-    ) {
+    if (media.isImage) {
       return renderImage(media);
-    } else if (
-      /(.gifv)$/.test(media.url) ||
-      (media.url.startsWith("https://gfycat.com") &&
-        media.preview.reddit_video_preview) ||
-      media.url.startsWith("https://v.redd.it") ||
-      (media.url.startsWith("https://redgifs.com") &&
-        !media.secure_media_embed.content)
-    ) {
+    } else if (media.isVideo) {
       return renderVideo(media);
-    } else if (media.secure_media_embed && media.secure_media_embed.content) {
-      return renderFrame(media);
-    } else {
+    } else if (media.isText) {
       return renderText(media);
+    } else if (media.isFrame) {
+      return renderFrame(media);
     }
   }
 
@@ -33,7 +22,7 @@ const MediaEmbeder = ({ media, lastPostRef }) => {
       <div className="card">
         <p
           className="text"
-          dangerouslySetInnerHTML={{ __html: md.render(media.selftext) }}
+          dangerouslySetInnerHTML={{ __html: md.render(media.textContent) }}
         />
         <h1 className="title">{media.title}</h1>
       </div>
@@ -41,34 +30,18 @@ const MediaEmbeder = ({ media, lastPostRef }) => {
   }
 
   function renderImage(media) {
-    let url = "";
-    if (/(.jpe?g|.png|.gif)$/.test(media.url)) {
-      url = media.url;
-    } else {
-      url = media.url.slice(0, -2);
-    }
     return (
       <div className="card">
-        <img src={url} alt={media.title} />
+        <img src={media.image} alt={media.title} />
         <h1 className="title">{media.title}</h1>
       </div>
     );
   }
 
   function renderVideo(media) {
-    let url = "";
-    if (media.url.endsWith(".gifv")) {
-      url = media.url.replace(".gifv", ".mp4");
-    } else if (media.url.startsWith("https://v.redd.it") && media.media) {
-      url = media.media.reddit_video.fallback_url;
-    } else if (media.preview && media.preview.reddit_video_preview) {
-      url = media.preview.reddit_video_preview.fallback_url;
-    } else if (media.preview && media.preview.reddit_video) {
-      url = media.preview.reddit_video.fallback_url;
-    }
     return (
       <div className="card">
-        <video controls src={url}></video>
+        <video controls src={media.video}></video>
         <h1 className="title">{media.title}</h1>
       </div>
     );
@@ -76,7 +49,7 @@ const MediaEmbeder = ({ media, lastPostRef }) => {
 
   function renderFrame(media) {
     const txtArea = document.createElement("textarea");
-    txtArea.innerHTML = media.secure_media_embed.content.replace(
+    txtArea.innerHTML = media.embedHTML.replace(
       'style="position:absolute;"',
       ""
     );
