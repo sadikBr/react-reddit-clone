@@ -180,3 +180,18 @@ iframe {
     max-height: 400px;
   }
 }
+
+@media screen and (max-width: 400px) {
+  .results {
+    padding: 0;
+  }
+  .card-container {
+    width: 100%;
+    height: fit-content;
+    margin: 0.5rem 0;
+    background: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    border-radius: none;
+    overflow: hidden;
+  }
+}
