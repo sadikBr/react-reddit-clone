@@ -53,7 +53,7 @@
   height: fit-content;
   margin: 0.5rem;
   background: white;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   border-radius: 0.25rem;
   overflow: hidden;
 }
@@ -79,9 +79,31 @@ iframe {
 .card .title {
   font-size: 0.95rem;
   padding: 0.75rem 1rem;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.author_container {
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+}
+
+.author_container .author {
+  color: rgb(45, 163, 163);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.title .score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(45, 163, 163);
+  padding: 0.1rem 0.5rem;
+  border-radius: 0.1rem;
+  color: white;
 }
 
 .card .text {
