@@ -13,6 +13,14 @@ export default function filterData(posts) {
             ? post.data.title
             : post.data.title.slice(0, 45) + " ...";
         filteredPost.image = post.data.url;
+      } else if (post.data.url.endsWith(".mp4")) {
+        filteredPost.id = post.data.id;
+        filteredPost.isVideo = true;
+        filteredPost.title =
+          post.data.title.length < 45
+            ? post.data.title
+            : post.data.title.slice(0, 45) + " ...";
+        filteredPost.video = post.data.url;
       } else if (
         post.data.url.startsWith("https://i.imgur.com") &&
         !post.data.url.endsWith(".gifv")
