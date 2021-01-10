@@ -40,14 +40,6 @@ export default function filterData(posts) {
             ? post.data.title
             : post.data.title.slice(0, 45) + " ...";
         filteredPost.video = post.data.url.replace(".gifv", ".mp4");
-      } else if (post.data.selftext) {
-        filteredPost.id = post.data.id;
-        filteredPost.isText = true;
-        filteredPost.textContent = post.data.selftext;
-        filteredPost.title =
-          post.data.title.length < 45
-            ? post.data.title
-            : post.data.title.slice(0, 45) + " ...";
       } else if (
         post.data.url.startsWith("https://v.redd.it") &&
         post.data.media
@@ -83,6 +75,14 @@ export default function filterData(posts) {
         filteredPost.id = post.data.id;
         filteredPost.isFrame = true;
         filteredPost.embedHTML = post.data.secure_media_embed.content;
+        filteredPost.title =
+          post.data.title.length < 45
+            ? post.data.title
+            : post.data.title.slice(0, 45) + " ...";
+      } else if (post.data.selftext) {
+        filteredPost.id = post.data.id;
+        filteredPost.isText = true;
+        filteredPost.textContent = post.data.selftext;
         filteredPost.title =
           post.data.title.length < 45
             ? post.data.title
