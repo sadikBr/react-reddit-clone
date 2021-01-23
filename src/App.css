@@ -53,6 +53,8 @@
 
 .banner {
   width: 100%;
+  max-height: 400px;
+  overflow: hidden;
 }
 .banner img {
   width: 100%;
@@ -61,9 +63,11 @@
 .name {
   display: flex;
   align-items: center;
+  min-height: 15vw;
 }
 .icon {
-  width: 20vw;
+  width: 15vw;
+  height: 15vw;
   border-radius: 50%;
   border: 2px solid black;
   background: lightgray;
@@ -223,6 +227,9 @@ iframe {
   .header {
     padding: 1rem 1rem;
   }
+  .banner {
+    max-height: 250px;
+  }
   .results {
     padding: 0.5rem 4rem;
   }
@@ -242,6 +249,9 @@ iframe {
   form {
     display: flex;
     width: 100%;
+  }
+  .banner {
+    max-height: 100px;
   }
   .icon {
     margin: 0.5rem;
