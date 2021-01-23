@@ -250,13 +250,13 @@ iframe {
   .icon {
     margin: 0.5rem;
   }
-  .title {
+  .sr-title {
     padding: 0.25rem;
   }
-  .title h2 {
+  .sr-title h2 {
     margin-bottom: 0;
   }
-  .title p {
+  .sr-title p {
     margin-left: 0.25rem;
   }
   .results {
