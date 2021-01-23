@@ -63,7 +63,7 @@
   align-items: center;
 }
 .icon {
-  max-width: 30vw;
+  max-width: 150px;
   border-radius: 50%;
   border: 2px solid black;
   background: lightgray;
