@@ -72,17 +72,17 @@
   margin: 1rem;
 }
 
-.title {
+.sr-title {
   width: 80vw;
   padding: 1rem;
 }
 
-.title h2 {
+.sr-title h2 {
   font-size: 3vw;
   margin-bottom: 0.75rem;
 }
 
-.title p {
+.sr-title p {
   margin-left: 1rem;
   font-size: 1.5vw;
 }

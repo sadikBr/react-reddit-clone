@@ -14,7 +14,7 @@ const SubredditInfo = ({ subredditInfo }) => {
         </div>
         <div className='name'>
           {icon_img && <img className='icon' src={icon_img} alt='icon' />}
-          <div className='title'>
+          <div className='sr-title'>
             <h2>{display_name}</h2>
             <p>{public_description}</p>
           </div>
