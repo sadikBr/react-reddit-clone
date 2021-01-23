@@ -61,9 +61,9 @@
 .name {
   display: flex;
   align-items: center;
-  width: 100%;
 }
 .icon {
+  width: 20vw;
   border-radius: 50%;
   border: 2px solid black;
   background: lightgray;
@@ -73,7 +73,7 @@
 }
 
 .title {
-  width: 80%;
+  width: 80vw;
   padding: 1rem;
 }
 
