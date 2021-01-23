@@ -100,7 +100,7 @@
 }
 
 .card-container {
-  width: 32%;
+  width: 45%;
   height: fit-content;
   margin: 0.5rem;
   background: white;
@@ -218,11 +218,6 @@ iframe {
   }
 }
 
-@media screen and (max-width: 1216px) {
-  .card-container {
-    width: 45%;
-  }
-}
 @media screen and (max-width: 650px) {
   .header {
     padding: 1rem 1rem;
