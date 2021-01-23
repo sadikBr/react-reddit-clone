@@ -61,11 +61,9 @@
 .name {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  width: 100%;
 }
 .icon {
-  width: 200px;
-  height: 200px;
   border-radius: 50%;
   border: 2px solid black;
   background: lightgray;
@@ -75,6 +73,7 @@
 }
 
 .title {
+  width: 80%;
   padding: 1rem;
 }
 
@@ -249,8 +248,6 @@ iframe {
     flex: 1;
   }
   .icon {
-    width: 100px;
-    height: 100px;
     margin: 0.5rem;
   }
   .title {
