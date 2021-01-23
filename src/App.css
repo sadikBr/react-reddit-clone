@@ -46,7 +46,7 @@
 
 .container {
   width: 95%;
-  margin: 0 auto 2rem auto;
+  margin: 0 auto 1rem auto;
   background: lightgray;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }

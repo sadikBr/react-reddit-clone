@@ -12,7 +12,7 @@ import useAboutSubreddit from './hooks/useAboutSubreddit';
 import './App.css';
 
 function App() {
-  const [searchTerm, setSearchTerm] = useState('awww');
+  const [searchTerm, setSearchTerm] = useState('aww');
   const [after, setAfter] = useState('');
   const [sortType, setSortType] = useState({
     sort: 'new',
