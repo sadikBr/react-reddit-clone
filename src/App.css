@@ -239,6 +239,7 @@ iframe {
   }
   form {
     display: flex;
+    flex: 1;
   }
   form input {
     flex: 1;
@@ -249,7 +250,7 @@ iframe {
     margin: 0.5rem;
   }
   .title {
-    padding: 0;
+    padding: 0.25rem;
   }
   .title h2 {
     margin-bottom: 0.25rem;
