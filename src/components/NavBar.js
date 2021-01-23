@@ -26,9 +26,10 @@ const NavBar = ({ setAfter, setSearchTerm, setSortType }) => {
   }
 
   function handleSuggestionClick(suggestion) {
+    setInputValue('');
     setSearchTerm(suggestion);
-    setInputValue(suggestion);
     setSuggestions([]);
+    setAfter('');
   }
 
   function handleSortingFilter(value) {

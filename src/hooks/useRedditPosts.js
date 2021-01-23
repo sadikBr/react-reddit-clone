@@ -9,7 +9,7 @@ const useRedditPosts = (searchTerm, sortType, after) => {
   const [posts, setPosts] = useState([]);
   const [afterPost, setAfterPost] = useState(undefined);
 
-  document.title = `Reddit Clone - r/${searchTerm}`;
+  document.title = `Reddit Clone - r/${searchTerm.replace(' ', '')}`;
 
   useEffect(() => {
     setPosts([]);
@@ -20,7 +20,7 @@ const useRedditPosts = (searchTerm, sortType, after) => {
     setError('');
     axios({
       method: 'GET',
-      url: `https://www.reddit.com/r/${searchTerm.split(' ').join('')}/${
+      url: `https://www.reddit.com/r/${searchTerm.replace(' ', '')}/${
         sortType.sort
       }/.json`,
       params: {
