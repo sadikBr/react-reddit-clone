@@ -44,6 +44,48 @@
   background: rgb(218, 218, 218);
 }
 
+.container {
+  width: 95%;
+  margin: 0 auto 2rem auto;
+  background: lightgray;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.banner {
+  width: 100%;
+}
+.banner img {
+  width: 100%;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+}
+.icon {
+  max-width: 15vw;
+  border-radius: 50%;
+  border: 2px solid black;
+  background: lightgray;
+  padding: 2px;
+  overflow: hidden;
+  margin: 1rem;
+}
+
+.title {
+  padding: 1rem;
+}
+
+.title h2 {
+  font-size: 4vw;
+  margin-bottom: 1rem;
+}
+
+.title p {
+  margin-left: 2rem;
+  font-size: 2vw;
+}
+
 .results {
   width: 100%;
   padding: 0.5rem 5rem;

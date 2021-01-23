@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import MarkdownIt from "markdown-it";
+import MarkdownIt from 'markdown-it';
 
 const MediaEmbeder = ({ media, lastPostRef }) => {
   const [md] = useState(new MarkdownIt());
@@ -19,19 +19,19 @@ const MediaEmbeder = ({ media, lastPostRef }) => {
 
   function renderText(media) {
     return (
-      <div className="card">
+      <div className='card'>
         <p
-          className="text"
+          className='text'
           dangerouslySetInnerHTML={{ __html: md.render(media.textContent) }}
         />
-        <h1 className="title">
-          {media.title.length} <span className="score">{media.score}</span>
+        <h1 className='title'>
+          {media.title.length} <span className='score'>{media.score}</span>
         </h1>
-        <div className="author_container">
-          created {media.created_at} by{" "}
+        <div className='author_container'>
+          created {media.created_at} by{' '}
           <a
             href={`https://www.reddit.com/u/${media.created_by}`}
-            className="author"
+            className='author'
           >
             {media.created_by}
           </a>
@@ -42,16 +42,16 @@ const MediaEmbeder = ({ media, lastPostRef }) => {
 
   function renderImage(media) {
     return (
-      <div className="card">
+      <div className='card'>
         <img src={media.image} alt={media.title} />
-        <h1 className="title">
-          {media.title} <span className="score">{media.score}</span>
+        <h1 className='title'>
+          {media.title} <span className='score'>{media.score}</span>
         </h1>
-        <div className="author_container">
-          created {media.created_at} by{" "}
+        <div className='author_container'>
+          created {media.created_at} by{' '}
           <a
             href={`https://www.reddit.com/u/${media.created_by}`}
-            className="author"
+            className='author'
           >
             {media.created_by}
           </a>
@@ -62,16 +62,16 @@ const MediaEmbeder = ({ media, lastPostRef }) => {
 
   function renderVideo(media) {
     return (
-      <div className="card">
+      <div className='card'>
         <video controls src={media.video}></video>
-        <h1 className="title">
-          {media.title} <span className="score">{media.score}</span>
+        <h1 className='title'>
+          {media.title} <span className='score'>{media.score}</span>
         </h1>
-        <div className="author_container">
-          created {media.created_at} by{" "}
+        <div className='author_container'>
+          created {media.created_at} by{' '}
           <a
             href={`https://www.reddit.com/u/${media.created_by}`}
-            className="author"
+            className='author'
           >
             {media.created_by}
           </a>
@@ -81,15 +81,15 @@ const MediaEmbeder = ({ media, lastPostRef }) => {
   }
 
   function renderFrame(media) {
-    const txtArea = document.createElement("textarea");
+    const txtArea = document.createElement('textarea');
     txtArea.innerHTML = media.embedHTML.replace(
       'style="position:absolute;"',
-      ""
+      ''
     );
 
     return (
       <div
-        className="card"
+        className='card'
         dangerouslySetInnerHTML={{
           __html:
             txtArea.value +
@@ -105,7 +105,7 @@ const MediaEmbeder = ({ media, lastPostRef }) => {
   }
 
   return (
-    <div ref={lastPostRef && lastPostRef} className="card-container">
+    <div ref={lastPostRef && lastPostRef} className='card-container'>
       {renderMedia(media)}
     </div>
   );
