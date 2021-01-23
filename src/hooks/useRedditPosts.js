@@ -9,6 +9,8 @@ const useRedditPosts = (searchTerm, sortType, after) => {
   const [posts, setPosts] = useState([]);
   const [afterPost, setAfterPost] = useState(undefined);
 
+  document.title = `Reddit Clone - r/${searchTerm}`;
+
   useEffect(() => {
     setPosts([]);
   }, [searchTerm, sortType]);
