@@ -239,11 +239,23 @@ iframe {
   }
   form {
     display: flex;
-    width: 100%;
+  }
+  form input {
+    flex: 1;
   }
   .icon {
     width: 100px;
     height: 100px;
+    margin: 0.5rem;
+  }
+  .title {
+    padding: 0;
+  }
+  .title h2 {
+    margin-bottom: 0.25rem;
+  }
+  .title p {
+    margin-left: 0.5rem;
   }
   .results {
     padding: 0;
