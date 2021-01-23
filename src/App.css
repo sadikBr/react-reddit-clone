@@ -199,9 +199,6 @@ iframe {
   form {
     display: flex;
   }
-  form input {
-    width: 60%;
-  }
   .results {
     padding: 0;
   }
