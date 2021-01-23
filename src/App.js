@@ -1,19 +1,24 @@
-import NavBar from "./components/NavBar";
-import ScrollToTop from "./components/ScrollToTop";
-import LoadingComponent from "./components/LoadingComponent";
-import ErrorComponent from "./components/ErrorComponent";
-import ResultsSection from "./components/ResultsSection";
+import NavBar from './components/NavBar';
+import ScrollToTop from './components/ScrollToTop';
+import LoadingComponent from './components/LoadingComponent';
+import ErrorComponent from './components/ErrorComponent';
+import ResultsSection from './components/ResultsSection';
 
-import { useState, useRef, useCallback } from "react";
-import useRedditPosts from "./hooks/useRedditPosts";
+import { useState, useRef, useCallback } from 'react';
+import useRedditPosts from './hooks/useRedditPosts';
 
-import "./App.css";
+import './App.css';
 
 function App() {
-  const [searchTerm, setSearchTerm] = useState("awww");
-  const [after, setAfter] = useState("");
+  const [searchTerm, setSearchTerm] = useState('awww');
+  const [after, setAfter] = useState('');
+  const [sortType, setSortType] = useState({
+    sort: 'new',
+    t: '',
+  });
   const { loading, error, posts, afterPost } = useRedditPosts(
     searchTerm,
+    sortType,
     after
   );
 
@@ -34,7 +39,11 @@ function App() {
 
   return (
     <>
-      <NavBar setAfter={setAfter} setSearchTerm={setSearchTerm} />
+      <NavBar
+        setAfter={setAfter}
+        setSearchTerm={setSearchTerm}
+        setSortType={setSortType}
+      />
       {error && <ErrorComponent errorMsg={error} />}
       {posts && posts.length > 0 && (
         <ResultsSection lastPostRef={lastPostRef} data={posts} />

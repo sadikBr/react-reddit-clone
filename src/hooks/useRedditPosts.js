@@ -1,26 +1,31 @@
-import { useState, useEffect } from "react";
-import filterData from "./filterData";
+import { useState, useEffect } from 'react';
+import filterData from './filterData';
 
-import axios from "axios";
+import axios from 'axios';
 
-const useRedditPosts = (searchTerm, after) => {
+const useRedditPosts = (searchTerm, sortType, after) => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [posts, setPosts] = useState([]);
   const [afterPost, setAfterPost] = useState(undefined);
 
   useEffect(() => {
     setPosts([]);
-  }, [searchTerm]);
+  }, [searchTerm, sortType]);
 
   useEffect(() => {
     setLoading(true);
-    setError("");
+    setError('');
     axios({
-      method: "GET",
-      url: `https://www.reddit.com/r/${searchTerm.split(" ").join("")}/.json`,
+      method: 'GET',
+      url: `https://www.reddit.com/r/${searchTerm.split(' ').join('')}/${
+        sortType.sort
+      }/.json`,
       params: {
-        limit: "20",
+        include_over_18: true,
+        limit: '20',
+        sort: sortType.sort,
+        t: sortType.t,
         after,
       },
     })
@@ -36,7 +41,7 @@ const useRedditPosts = (searchTerm, after) => {
         setError(`${searchTerm} NOT FOUND`);
         setLoading(false);
       });
-  }, [searchTerm, after]);
+  }, [searchTerm, sortType, after]);
 
   return { loading, error, posts, afterPost };
 };
