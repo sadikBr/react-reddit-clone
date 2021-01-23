@@ -242,7 +242,7 @@ iframe {
     flex: 1;
   }
   form input {
-    flex: 1;
+    width: 100%;
   }
   .icon {
     width: 100px;
