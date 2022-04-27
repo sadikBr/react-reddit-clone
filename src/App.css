@@ -1,0 +1,275 @@
+.header {
+  display: flex;
+  padding: 1.5rem 5rem;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(45, 163, 163);
+  color: white;
+}
+
+.header form input {
+  outline: none;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+.sort-filter {
+  margin-left: 5px;
+}
+
+.header form {
+  position: relative;
+}
+
+.header .suggestions {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  background: white;
+  box-shadow: 0 0 15px gray;
+  border-radius: 0.25rem;
+  top: 110%;
+  left: 0;
+  z-index: 1000;
+}
+
+.header .suggestions div {
+  padding: 5px 10px;
+  color: gray;
+  cursor: pointer;
+}
+.header .suggestions div:hover {
+  background: rgb(218, 218, 218);
+}
+
+.container {
+  width: 95%;
+  margin: 0 auto 1rem auto;
+  background: lightgray;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.banner {
+  width: 100%;
+  max-height: 400px;
+  overflow: hidden;
+}
+.banner img {
+  width: 100%;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  min-height: 15vw;
+}
+.icon {
+  width: 15vw;
+  height: 15vw;
+  border-radius: 50%;
+  border: 2px solid black;
+  background: lightgray;
+  padding: 2px;
+  overflow: hidden;
+  margin: 1rem;
+}
+
+.sr-title {
+  width: 80vw;
+  padding: 1rem;
+}
+
+.sr-title h2 {
+  font-size: 3vw;
+  margin-bottom: 0.75rem;
+}
+
+.sr-title p {
+  margin-left: 1rem;
+  font-size: 1.5vw;
+}
+
+.results {
+  width: 100%;
+  padding: 0.5rem 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-container {
+  width: 45%;
+  height: fit-content;
+  margin: 0.5rem;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid white;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  transition: all 0.15s ease-in-out;
+}
+
+.card-container:hover {
+  border-color: gray;
+}
+
+.card {
+  width: 100%;
+}
+
+.card img {
+  width: 100%;
+}
+
+.card video {
+  width: 100%;
+  max-height: 630px;
+}
+
+iframe {
+  width: 100%;
+  min-height: 215px;
+}
+
+.card .title {
+  font-size: 0.95rem;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.author_container {
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+}
+
+.author_container .author {
+  color: rgb(45, 163, 163);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.title .score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(45, 163, 163);
+  padding: 0.1rem 0.5rem;
+  border-radius: 0.1rem;
+  color: white;
+}
+
+.card .text {
+  padding: 0.75rem 1rem;
+  text-align: justify;
+  line-height: 1.5;
+}
+
+.loading-spinner {
+  display: block;
+  margin: auto;
+  width: 170px;
+  margin-top: 200px;
+}
+
+.error-msg {
+  text-align: center;
+  margin-top: 250px;
+  color: rgb(45, 163, 163);
+}
+
+.to-top {
+  width: 50px;
+  height: 70px;
+  font-size: 3rem;
+  background: rgb(45, 163, 163);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  user-select: none;
+  border-radius: 0.25rem;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  animation: fade-in 0.5s ease-in-out forwards,
+    jiggle 1s ease-in-out infinite alternate;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes jiggle {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-20px);
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .header {
+    padding: 1rem 1rem;
+  }
+  .banner {
+    max-height: 250px;
+  }
+  .results {
+    padding: 0.5rem 4rem;
+  }
+  .card-container {
+    width: 100%;
+  }
+  .card video {
+    max-height: 400px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  form {
+    display: flex;
+    width: 100%;
+  }
+  .banner {
+    max-height: 100px;
+  }
+  .icon {
+    margin: 0.5rem;
+  }
+  .sr-title {
+    padding: 0.25rem;
+  }
+  .sr-title h2 {
+    margin-bottom: 0.25rem;
+  }
+  .sr-title p {
+    margin-left: 0.25rem;
+  }
+  .results {
+    padding: 0;
+  }
+  .card-container {
+    width: 100%;
+    height: fit-content;
+    margin: 0.5rem 0;
+    background: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    border-radius: none;
+    overflow: hidden;
+  }
+}
